@@ -3,7 +3,7 @@
 	public interface IUrlComposer
 	{
 		void Initialize(int length);
-		void AppendText(string p);
+		void AppendText(string text);
 		void AppendParameterName(string parameterName);
 		void AppendParameterValue(string parameterValue);
 	}
