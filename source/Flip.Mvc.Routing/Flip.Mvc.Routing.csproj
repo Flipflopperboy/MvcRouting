@@ -70,8 +70,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\SolutionInfo.cs">
+      <Link>Properties\SolutionInfo.cs</Link>
+    </Compile>
+    <Compile Include="Web.Routing\RequiredRouteConstraint.cs" />
+    <Compile Include="Web.Routing\RangeRouteConstraint.cs" />
+    <Compile Include="System.Web.Routing\RouteCollectionExtensions.cs" />
+    <Compile Include="Web.Mvc.Generator\MvcGenerator.cs" />
+    <Compile Include="Web.Routing\IParameterBuilder.cs" />
+    <Compile Include="Web.Routing\Is.cs" />
     <Compile Include="Web.Routing\IUrlComposer.cs" />
     <Compile Include="Web.Routing\JavascriptFunctionUrlComposer.cs" />
+    <Compile Include="Web.Routing\ParameterBuilder.cs" />
+    <Compile Include="Web.Routing\ParameterBuilderExtensions.cs" />
+    <Compile Include="Web.Routing\RouteBuilder.cs" />
     <Compile Include="Web.Routing\UrlBuilder.cs" />
     <Compile Include="System.Web.Mvc\UrlHelperExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

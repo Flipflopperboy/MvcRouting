@@ -6,3 +6,4 @@ csx/
 *.csproj.user
 *.user
 **/packages/
+*.bak

@@ -1,11 +1,23 @@
-﻿using System.Web.Routing;
+﻿using System.Collections.Generic;
+using System.Web.Routing;
 using Flip.Web.Routing;
 
 namespace System.Web.Mvc
 {
 	public static class UrlHelperExtensions
 	{
-		public static string AwsomeRouteUrl(this UrlHelper url, string routeName, bool useRouteData = true)
+		public static string JavascriptRouteFunction(this UrlHelper url, string routeName, 
+			bool useRouteData = true, 
+			IDictionary<string, string> overrideValues = null)
+		{
+			var route = GetRoute(url, routeName);
+			var builder = new UrlBuilder(new UrlComposer(), route);
+			return useRouteData ? 
+                builder.Build(url.RequestContext.RouteData.Values, overrideValues) : 
+                builder.Build(new Dictionary<string, object>(), overrideValues);
+		}
+
+		private static Route GetRoute(UrlHelper url, string routeName)
 		{
 			if (string.IsNullOrEmpty(routeName))
 			{
@@ -23,9 +35,7 @@ namespace System.Web.Mvc
 			{
 				throw new ArgumentException(string.Format("Route {0} is not a valid route", routeName));
 			}
-
-			var builder = new UrlBuilder(new UrlComposer(), route);
-			return useRouteData ? builder.Build(url.RequestContext.RouteData.Values) : builder.Build();
+			return route;
 		}
 	}
 }
